@@ -30,24 +30,49 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:enabled="false"
                 android:text="Add Row" />
+
 
         </LinearLayout>
 
 
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="2" />
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/main"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TableLayout
+                    android:id="@+id/mainTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="*">
+                </TableLayout>
+
+
+                    <ScrollView android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:id="@+id/scrolledTable"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </TableLayout>
+                    </ScrollView>
 
             </LinearLayout>
+
         </HorizontalScrollView>
 
     </LinearLayout>

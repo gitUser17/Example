@@ -1,5 +1,5 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/header"
+android:id="@+id/header3"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
@@ -17,5 +17,13 @@ android:layout_height="match_parent">
         android:layout_weight="1"
         android:background="#FFF"
         android:text="Price"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:background="#FFF"
+        android:text="Amount"
         android:textSize="18sp" />
 </TableRow>

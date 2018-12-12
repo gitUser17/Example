@@ -1,19 +1,17 @@
 package com.example.user.example;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_bkp extends AppCompatActivity {
 
     //
     Button addTable;
@@ -31,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         //
         addTable = (Button) findViewById(R.id.buttonAddTable);
         addRow = (Button) findViewById(R.id.buttonAddRow);
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         container_row = (TableLayout)findViewById(R.id.scrolledTable);
         SeekBar seek = (SeekBar) findViewById(R.id.seekBar);
 
-
+        //
         addTable.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -48,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 final View addView = layoutInflater.inflate(R.layout.table, null);
                 TableRow row = (TableRow) addView.findViewById(R.id.header);
                 container_header.addView(addView);
-
 
                 addTable.setEnabled(false);
 
@@ -61,9 +57,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View addView = layoutInflater.inflate(R.layout.row, null);
-                TableRow row = (TableRow) addView.findViewById(R.id.tablerow);
-                container_header.addView(addView);
+                //final View addView = layoutInflater.inflate(R.layout.row, null);
+                if (seekProgress==3) {
+                    test = layoutInflater.inflate(R.layout.row3, null);
+                }
+                else  {
+                    test = layoutInflater.inflate(R.layout.row, null);
+                }
+                TableRow row = (TableRow) test.findViewById(R.id.tablerow);
+                container_row.addView(row);
             }});
 
 
@@ -73,21 +75,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekProgress = 0;
-
-                if (progress==2) {
-                    seekProgress = 2;
-                }
                 if (progress==3) {
 
                     //setContentView(R.layout.activity_main_copy);
                     if (flag==0) {
-
-                        //setContentView(R.layout.activity_main);
                     LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     final View addView = layoutInflater.inflate(R.layout.table3, null);
                     TableRow row = (TableRow) addView.findViewById(R.id.header);
-                        TableLayout table = (TableLayout) addView.findViewById(R.id.scrolledTable);
-
                     container_header.addView(addView);
 
                     flag=1;
